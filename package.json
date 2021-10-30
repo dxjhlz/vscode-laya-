@@ -1,0 +1,64 @@
+{
+	"name": "extension1",
+	"displayName": "extesion1",
+	"description": "sample extension1",
+	"version": "0.0.9",
+	"publisher": "MrDx",
+	"engines": {
+		"vscode": "^0.10.5"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension1.whatishuang",
+		"onCommand:extension1.helloDxj",
+		"onCommand:extension1.setConfig"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension1.whatishuang",
+				"title": "whatishuang?"
+			}
+		],
+		"keybindings":[
+			{
+				"command":"extension1.helloDxj",
+				"key":"ctrl+f7",	
+				"mac":"ctrl+f7",
+				"title": "helloDxj",
+				"when": "editorTextFocus"
+			},
+			{
+				"command":"extension1.setConfig",
+				"key":"ctrl+f8",	
+				"mac":"ctrl+f8",
+				"title": "setConfig",
+				"when": "editorLangId == json && resourceFilename == config.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^0.10.5",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.9.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	}
+}
